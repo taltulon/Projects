@@ -1,0 +1,9 @@
+IMPORTANT:
+1. remove events containing registry modification (on first switch. the second switch is written to other log)
+
+less important:
+3. number of events stays the same after deletion.
+4. when deleting 2 close events, 3 and 4, event number 2 will be shown 3 times on event viewer.
+5. deletion of first event on chunk.
+
+Parse all events - from less than 10% to 98.2% of events are parsed. ill take that for now.

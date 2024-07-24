@@ -1,0 +1,12 @@
+Compile the kernel-space program with:
+clang -O2 -g -target bpf -D__TARGET_ARCH__ -c source.c -o xdp_program.o
+
+Compile the user-space program with:
+gcc -o user_program user.c -lbpf
+
+Load the kernel-space program with:
+bpftool prog load xdp_program.o /sys/fs/bpf/xdp_program
+bpftool net attach xdp pinned /sys/fs/bpf/xdp_program dev eth0
+
+And Finally (when sending the icmp packets):
+./user_program
